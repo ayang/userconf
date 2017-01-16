@@ -19,7 +19,7 @@ set textwidth=0
 set nolinebreak
 set nowrap
 
-set virtualedit=all               " Allow the cursor to go in to 'invalid' places
+set virtualedit=block               " Allow the cursor to go in to 'invalid' places
 set autoread
 
 set hlsearch                      " highlight search terms
@@ -125,7 +125,7 @@ cmap w!! w !sudo tee % >/dev/null
 augroup configgroup
 	autocmd!
 	autocmd VimEnter * highlight clear SignColumn
-	autocmd BufWritePre *.php,*.py,*.js,*.txt,*.hs,*.java,*.md \:%s/\s\+$//e
+	autocmd BufWritePre *.php,*.py,*.js,*.txt,*.hs,*.java,*.md :%s/\s\+$//e
 
 	autocmd FileType java setlocal noexpandtab
 	autocmd FileType java setlocal list
